@@ -1,3 +1,4 @@
+
 import React from "react";
 //import logo from "./logo.svg";
 import Visualizer from "./components/Visualizer";
@@ -12,6 +13,7 @@ function App() {
         <Visualizer />
       </div>
     </React.Fragment>
+
   );
 }
 
