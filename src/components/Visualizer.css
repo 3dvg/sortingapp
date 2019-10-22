@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: flex-end;
+  /*background-color: white;*/
+  height: 50vh;
+}
+
+.array-bar {
+  background-color: black;
+  color: transparent;
+  width: 5px;
+  margin: 0px 1px 0px 1px;
+}
+
+button {
+  margin: 15px;
+}
