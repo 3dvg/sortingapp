@@ -1,9 +1,9 @@
 nav {
-  background-color: white;
+  background-color: dimgray;
   padding: 20px;
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  color: black;
+  color: white;
   border-bottom: solid;
 }

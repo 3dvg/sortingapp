@@ -12,6 +12,38 @@
   margin: 0px 1px 0px 1px;
 }
 
-button {
+.button {
   margin: 15px;
+  background-color: gray;
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+  opacity: 1;
+  /* transition: 0.3s; */
+  padding: 7px;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+.disabled {
+  opacity: 0.5;
+}
+/* button:hover {
+  opacity: 0.8;
+} */
+
+@media only screen and (max-width: 800px) {
+  .array-bar {
+    background-color: black;
+    color: transparent;
+    width: 2px;
+    margin: 0px 1px 0px 1px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .array-bar {
+    background-color: black;
+    color: transparent;
+    width: 1px;
+    margin: 0px 1px 0px 1px;
+  }
 }

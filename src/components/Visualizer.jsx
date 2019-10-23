@@ -13,7 +13,7 @@ const NUMBER_OF_ARRAY_BARS = 100;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = "black";
-
+let buttonClass = "button";
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = "magenta";
 class Visualizer extends Component {
@@ -41,6 +41,13 @@ class Visualizer extends Component {
     document.getElementById("btnQuick").disabled = false;
     document.getElementById("btnHeap").disabled = false;
     document.getElementById("btnInsertion").disabled = false;
+
+    document.getElementById("btnBubble").classList.remove("disabled");
+    document.getElementById("btnReset").classList.remove("disabled");
+    document.getElementById("btnMerge").classList.remove("disabled");
+    document.getElementById("btnQuick").classList.remove("disabled");
+    document.getElementById("btnHeap").classList.remove("disabled");
+    document.getElementById("btnInsertion").classList.remove("disabled");
     this.setState({ array });
     this.colorBarsDefault(array);
   }
@@ -64,6 +71,13 @@ class Visualizer extends Component {
     document.getElementById("btnQuick").disabled = true;
     document.getElementById("btnHeap").disabled = true;
     document.getElementById("btnInsertion").disabled = true;
+
+    document.getElementById("btnBubble").classList.add("disabled");
+    document.getElementById("btnReset").classList.add("disabled");
+    document.getElementById("btnMerge").classList.add("disabled");
+    document.getElementById("btnQuick").classList.add("disabled");
+    document.getElementById("btnHeap").classList.add("disabled");
+    document.getElementById("btnInsertion").classList.add("disabled");
     const animations = algorithm_MS.getMergeSortAnimations(this.state.array);
     const sortedArray = algorithm_HS.getSortedArray(this.state.array);
     for (let i = 0; i < animations.length; i++) {
@@ -92,6 +106,7 @@ class Visualizer extends Component {
           }
           if (count === NUMBER_OF_ARRAY_BARS) {
             document.getElementById("btnReset").disabled = false;
+            document.getElementById("btnReset").classList.remove("disabled");
           }
         }, i * ANIMATION_SPEED_MS);
       }
@@ -104,6 +119,13 @@ class Visualizer extends Component {
     document.getElementById("btnQuick").disabled = true;
     document.getElementById("btnHeap").disabled = true;
     document.getElementById("btnInsertion").disabled = true;
+
+    document.getElementById("btnBubble").classList.add("disabled");
+    document.getElementById("btnReset").classList.add("disabled");
+    document.getElementById("btnMerge").classList.add("disabled");
+    document.getElementById("btnQuick").classList.add("disabled");
+    document.getElementById("btnHeap").classList.add("disabled");
+    document.getElementById("btnInsertion").classList.add("disabled");
     const animations = algorithm_BS.getBubbleSortAnimations(this.state.array);
     const sortedArray = algorithm_HS.getSortedArray(this.state.array);
     for (let i = 0; i < animations.length; i++) {
@@ -134,6 +156,7 @@ class Visualizer extends Component {
           }
           if (count === NUMBER_OF_ARRAY_BARS) {
             document.getElementById("btnReset").disabled = false;
+            document.getElementById("btnReset").classList.remove("disabled");
           }
         }, i * ANIMATION_SPEED_MS);
       }
@@ -146,6 +169,13 @@ class Visualizer extends Component {
     document.getElementById("btnQuick").disabled = true;
     document.getElementById("btnHeap").disabled = true;
     document.getElementById("btnInsertion").disabled = true;
+
+    document.getElementById("btnBubble").classList.add("disabled");
+    document.getElementById("btnReset").classList.add("disabled");
+    document.getElementById("btnMerge").classList.add("disabled");
+    document.getElementById("btnQuick").classList.add("disabled");
+    document.getElementById("btnHeap").classList.add("disabled");
+    document.getElementById("btnInsertion").classList.add("disabled");
     const animations = algorithm_IS.getInsertionSortAnimations(
       this.state.array
     );
@@ -178,6 +208,7 @@ class Visualizer extends Component {
           }
           if (count === NUMBER_OF_ARRAY_BARS) {
             document.getElementById("btnReset").disabled = false;
+            document.getElementById("btnReset").classList.remove("disabled");
           }
         }, i * ANIMATION_SPEED_MS);
       }
@@ -191,6 +222,12 @@ class Visualizer extends Component {
     document.getElementById("btnHeap").disabled = true;
     document.getElementById("btnInsertion").disabled = true;
 
+    document.getElementById("btnBubble").classList.add("disabled");
+    document.getElementById("btnReset").classList.add("disabled");
+    document.getElementById("btnMerge").classList.add("disabled");
+    document.getElementById("btnQuick").classList.add("disabled");
+    document.getElementById("btnHeap").classList.add("disabled");
+    document.getElementById("btnInsertion").classList.add("disabled");
     const animations = algorithm_HS.getHeapSortAnimations(this.state.array);
     const sortedArray = algorithm_HS.getSortedArray(this.state.array);
     for (let i = 0; i < animations.length; i++) {
@@ -224,12 +261,12 @@ class Visualizer extends Component {
           }
           if (count === NUMBER_OF_ARRAY_BARS) {
             document.getElementById("btnReset").disabled = false;
+            document.getElementById("btnReset").classList.remove("disabled");
           }
         }, i * ANIMATION_SPEED_MS);
       }
     }
   }
-
   quickSort() {
     document.getElementById("btnBubble").disabled = true;
     document.getElementById("btnReset").disabled = true;
@@ -237,6 +274,14 @@ class Visualizer extends Component {
     document.getElementById("btnQuick").disabled = true;
     document.getElementById("btnHeap").disabled = true;
     document.getElementById("btnInsertion").disabled = true;
+
+    document.getElementById("btnBubble").classList.add("disabled");
+    document.getElementById("btnReset").classList.add("disabled");
+    document.getElementById("btnMerge").classList.add("disabled");
+    document.getElementById("btnQuick").classList.add("disabled");
+    document.getElementById("btnHeap").classList.add("disabled");
+    document.getElementById("btnInsertion").classList.add("disabled");
+
     const animations = algorithm_QS.getQuickSortAnimations(this.state.array);
 
     const sortedArray = algorithm_HS.getSortedArray(this.state.array);
@@ -271,6 +316,7 @@ class Visualizer extends Component {
           }
           if (count === NUMBER_OF_ARRAY_BARS) {
             document.getElementById("btnReset").disabled = false;
+            document.getElementById("btnReset").classList.remove("disabled");
           }
         }, i * ANIMATION_SPEED_MS);
       }
@@ -290,23 +336,48 @@ class Visualizer extends Component {
             </div>
           ))}
         </div>
-        <div>
-          <button id="btnReset" onClick={() => this.resetArray()}>
+        <div className="btnContainer">
+          <button
+            id="btnReset"
+            className={buttonClass}
+            onClick={() => this.resetArray()}
+          >
             New Array
           </button>
-          <button id="btnMerge" onClick={() => this.mergeSort()}>
-            Merge Sort
-          </button>
-          <button id="btnHeap" onClick={() => this.heapSort()}>
-            Heap Sort
-          </button>
-          <button id="btnQuick" onClick={() => this.quickSort()}>
+          <button
+            id="btnQuick"
+            className={buttonClass}
+            onClick={() => this.quickSort()}
+          >
             Quick Sort
           </button>
-          <button id="btnBubble" onClick={() => this.bubbleSort()}>
+
+          <button
+            id="btnHeap"
+            className={buttonClass}
+            onClick={() => this.heapSort()}
+          >
+            Heap Sort
+          </button>
+          <button
+            id="btnMerge"
+            className={buttonClass}
+            onClick={() => this.mergeSort()}
+          >
+            Merge Sort
+          </button>
+          <button
+            id="btnBubble"
+            className={buttonClass}
+            onClick={() => this.bubbleSort()}
+          >
             Bubble Sort
           </button>
-          <button id="btnInsertion" onClick={() => this.insertionSort()}>
+          <button
+            id="btnInsertion"
+            className={buttonClass}
+            onClick={() => this.insertionSort()}
+          >
             Insertion Sort
           </button>
         </div>

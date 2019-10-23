@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 100vh;
+  background-color: whitesmoke;
 }
 
 .App-logo {
@@ -22,7 +24,7 @@
 }
 .mainapp {
   display: flex;
-  background-color: white;
+  background-color: whitesmoke;
   justify-content: center;
   height: 80vh;
   margin: 0;
